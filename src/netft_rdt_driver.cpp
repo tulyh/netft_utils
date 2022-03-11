@@ -260,9 +260,9 @@ void NetFTRDTDriver::recvThreadFunc()
           tmp_data.wrench.force.x = double(rdt_record.fx_) * force_scale_;
           tmp_data.wrench.force.y = double(rdt_record.fy_) * force_scale_;
           tmp_data.wrench.force.z = double(rdt_record.fz_) * force_scale_;
-          tmp_data.wrench.torque.x = double(rdt_record.tx_) * torque_scale_;
+          tmp_data.wrench.torque.x = -double(rdt_record.tx_) * torque_scale_;
           tmp_data.wrench.torque.y = double(rdt_record.ty_) * torque_scale_;
-          tmp_data.wrench.torque.z = double(rdt_record.tz_) * torque_scale_;
+          tmp_data.wrench.torque.z = -double(rdt_record.tz_) * torque_scale_;
           { boost::unique_lock<boost::mutex> lock(mutex_);
             new_data_ = tmp_data;
             lost_packets_ += (seqdiff - 1);
