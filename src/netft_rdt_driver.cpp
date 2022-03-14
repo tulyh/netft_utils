@@ -123,7 +123,10 @@ void RDTCommand::pack(uint8_t *buffer) const
   buffer[6] = (sample_count_ >> 8) & 0xFF;
   buffer[7] = (sample_count_ >> 0) & 0xFF;
 }
-
+NetFTRDTDriver::NetFTRDTDriver(const std::string &address) :
+  NetFTRDTDriver(address, "base_link") //defaulting frame_id to "base_link"
+{  
+}
 
 NetFTRDTDriver::NetFTRDTDriver(const std::string &address, const std::string &frame_id) :
   address_(address),

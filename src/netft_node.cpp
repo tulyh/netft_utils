@@ -67,7 +67,7 @@ int main(int argc, char **argv)
     ("rate", po::value<float>(&pub_rate_hz)->default_value(500.0), "set publish rate (in hertz)")
     ("wrench", "publish older Wrench message type instead of WrenchStamped")
     ("address", po::value<string>(&address), "IP address of NetFT box")
-    ("frame_id", po::value<string>(&frame_id), "frame_id for Wrench msgs")
+    ("frame_id", po::value<string>(&frame_id)->default_value("base_link"), "frame_id for Wrench msgs")
     ;
      
   po::positional_options_description p;
